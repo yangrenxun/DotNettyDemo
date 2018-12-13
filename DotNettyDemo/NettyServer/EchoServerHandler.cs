@@ -1,5 +1,6 @@
 ﻿using DotNetty.Buffers;
 using DotNetty.Transport.Channels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,14 +17,31 @@ namespace NettyServer
         /// </summary>
         /// <param name="context"></param>
         /// <param name="message"></param>
-        public override void ChannelRead(IChannelHandlerContext context, object message) // (2)
+        public override void ChannelRead(IChannelHandlerContext context, object message)
         {
-            if (message is IByteBuffer buffer)    // (3)
+            if (message is IByteBuffer buffer)
             {
-                Console.WriteLine("Received from client: " + buffer.ToString(Encoding.UTF8));
-            }
+                Console.WriteLine($"message length is {buffer.Capacity}");
+                var bstr = buffer.ToString(Encoding.UTF8);
+                var obj = JsonConvert.DeserializeObject<Dictionary<string, string>>(bstr.Replace(")", "")); // (1)
 
-            context.WriteAsync(message); // (4)
+                byte[] msg = null;
+                if (obj["func"].Contains("sayHello"))  // (2)
+                {
+                    msg = Encoding.UTF8.GetBytes(Say.SayHello(obj["username"]));
+                }
+
+                if (obj["func"].Contains("sayByebye")) // (2)
+                {
+                    msg = Encoding.UTF8.GetBytes(Say.SayByebye(obj["username"]));
+                }
+
+                if (msg == null) return;
+                // 设置Buffer大小
+                var b = Unpooled.Buffer(msg.Length, msg.Length); // (3)
+                IByteBuffer byteBuffer = b.WriteBytes(msg); // (4)
+                context.WriteAsync(byteBuffer); // (5)
+            }
         }
 
         /// <summary>
