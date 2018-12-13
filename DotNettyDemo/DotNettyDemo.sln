@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28306.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NettyServer", "NettyServer\NettyServer.csproj", "{2CC2EC01-7A96-498D-858B-A426F44CD0AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NettyClient", "NettyClient\NettyClient.csproj", "{0810E54D-AA8C-44CF-A6D3-6FECD4810966}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CC2EC01-7A96-498D-858B-A426F44CD0AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC2EC01-7A96-498D-858B-A426F44CD0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC2EC01-7A96-498D-858B-A426F44CD0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC2EC01-7A96-498D-858B-A426F44CD0AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0810E54D-AA8C-44CF-A6D3-6FECD4810966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0810E54D-AA8C-44CF-A6D3-6FECD4810966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0810E54D-AA8C-44CF-A6D3-6FECD4810966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0810E54D-AA8C-44CF-A6D3-6FECD4810966}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {911A05CF-8E9A-4A12-B41F-7761819E7730}
+	EndGlobalSection
+EndGlobal
